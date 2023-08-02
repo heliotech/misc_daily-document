@@ -9,10 +9,11 @@ Additionally it displays data to remember/memorize, supplied from a json file.
 
 [daily-document.html at github pages](https://heliotech.github.io/daily-document.html)
 
-## Instrukcje instalacji
+## Installation
 
 1. Clone repository and open index.html in the browser.
 2. Edit memory.json data file; format:
+
 	const memorylane = {
 	    "1": {"item": "what",
 	          "def": "description"},
