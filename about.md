@@ -1,6 +1,6 @@
 # daily-document
 
-*daily-document* is a small web application in the form of dynamic webpage,
+*daily-document* is a small web application in the form of a dynamic webpage,
 containing information about current date.
 
 Additionally it displays data to remember/memorize, supplied from a json file.
