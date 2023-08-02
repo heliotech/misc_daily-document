@@ -23,11 +23,11 @@ html {
           padding-bottom: 0.6rem; max-width: 50%; margin: auto;}
     .theborder {border: solid 2px ivory; margin: 1em; padding: 1em;}
 
-    .mitem {color: navajowhite; margin-left: 1em; font-style: italic; font-size: 1.2rem;
-            /* tooltip properties: */
-            /* !DBG */
-/*            border: solid blue 1px;*/
-            }
+    .mitem {color: navajowhite; margin-left: 1em; font-style: italic; font-size: 1.2rem;}
+
+    .backlink {color: navy; }
+    div a {color: navajowhite; position: absolute; bottom: 0; right: 0.5em;
+           text-decoration: none;}
 
     /* Styl tooltipa */
     .tooltip {
