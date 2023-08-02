@@ -1,0 +1,7 @@
+
+const memorylane = {  /* with 'const' only one variable, when more: without (discouraged) */
+    "1": {"item": "Ex uno sequitur alterum",
+          "def": "One leads to another"},
+    "2": {"item": "ἐξ ἑνὸς ἕτερον",
+          "def": "One leads to another (lit. from one another)"}
+}
