@@ -7,17 +7,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Daily document</title>
   <link rel="stylesheet" href="../res/style.css">
+  <link rel="icon" type="image/png" href="../res/sunny.png">
 </head>
 <body>
   <h1 id="top">{ymd}</h1>
 
   <div class="theborder">
-  <p>Today is <span id="weekday" class="hgl">{dname}</span>, 
-    <span id="dmnr" class="hgl">{dmnr}</span> of <span id="mname" class="hgl">{mname}</span>, 
-    <span id="year" class="hgl">{year}</span>.</p>
-  <p>It is <span id="dnr" class="hgl">{dnr}</span> of <span id="daysyear" class="hgl">{daysyear}</span>
-days in the year.</p>
-  </div>
+
+    <div class="floating ltooltip" data-tooltip="softdev search engine">
+      <a href="file:///home/khaz/docs/html/apps/sofdevSearchEngine/softdevSearch022.html" id="link-1"></a>
+    </div>
+
+    <div class="floating ltooltip" data-tooltip="duckduckgo">
+      <a href="https://duckduckgo.com/" id="link-2"></a>
+    </div>
+
+    <p>Today is <span id="weekday" class="hgl">{dname}</span>, 
+      <span id="dmnr" class="hgl">{dmnr}</span> of <span id="mname" class="hgl">{mname}</span>, 
+      <span id="year" class="hgl">{year}</span>.</p>
+    <p>It is <span id="dnr" class="hgl">{dnr}</span> of <span id="daysyear" class="hgl">{daysyear}</span>
+  days in the year.</p>
+
+    <!-- <div class="floating">
+      <div style="position: absolute; left: 100px; top: 0px; width: 20em;">
+          Hi there, I'm 100px offset from where I ought to be, from the top and left.
+      </div> -->
+    </div>
+
 
 <div class="theborder" style="position: relative">
 
@@ -31,13 +47,13 @@ days in the year.</p>
   <script>
 
   const dayNames = {
-    0: "Sunday",
-    1: "Monday",
-    2: "Tuesday",
-    3: "Wednesday",
-    4: "Thursday",
-    5: "Friday",
-    6: "Saturday"
+    6: "Sunday",
+    0: "Monday",
+    1: "Tuesday",
+    2: "Wednesday",
+    3: "Thursday",
+    4: "Friday",
+    5: "Saturday"
   };
 
   const monthNames = {
@@ -78,6 +94,8 @@ days in the year.</p>
     const day = today_.getDate();
     const day_txt = day.toString().padStart(2, '0');
     const ymd_str = `${year}-${month_txt}-${day_txt}`;  // yyyy-mm-dd
+
+    // console.log(`weekday: ${weekday}`);
 
     const topElement = document.getElementById("top");
     // console.log("topElement:", topElement);
