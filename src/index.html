@@ -91,6 +91,7 @@
     const month_txt = month.toString().padStart(2, '0');
     const weekday = today_.getDate();
     const weekdayName = dayNames[weekday];
+    console.log("weekday = ", weekday, ", weekdayName = ", weekdayName);  // !DBG
     const day = today_.getDate();
     const day_txt = day.toString().padStart(2, '0');
     const ymd_str = `${year}-${month_txt}-${day_txt}`;  // yyyy-mm-dd
