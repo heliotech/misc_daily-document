@@ -1,0 +1,131 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Daily document</title>
+  <link rel="stylesheet" href="../res/style.css">
+  <link rel="icon" type="image/png" href="../res/sunny.png">
+</head>
+<body>
+  <h1 id="top">{ymd}</h1>
+
+  <div class="theborder">
+
+    <p>Today is <span id="weekday" class="hgl">{dname}</span>, 
+      <span id="dmnr" class="hgl">{dmnr}</span> of <span id="mname" class="hgl">{mname}</span>, 
+      <span id="year" class="hgl">{year}</span>.</p>
+    <p>It is <span id="dnr" class="hgl">{dnr}</span> of <span id="daysyear" class="hgl">{daysyear}</span>
+  days in the year.</p>
+
+    <a title="softdevSearchEngine" 
+      href="file:///home/khaz/docs/html/apps/sofdevSearchEngine/softdevSearch022.html" id="link-1"></a>
+
+    <a href="file:///home/khaz/docs/html/apps/sofdevSearchEngine/softdevSearch022.html" id="link-2"></a>
+
+  </div>
+
+<div class="theborder" style="position: relative">
+
+  <div id="memorylanediv">
+    Commit to memory:
+
+  </div>
+
+  <script src="../res/memory.json"></script>
+
+  <script>
+
+  const dayNames = {
+    6: "Sunday",
+    0: "Monday",
+    1: "Tuesday",
+    2: "Wednesday",
+    3: "Thursday",
+    4: "Friday",
+    5: "Saturday"
+  };
+
+  const monthNames = {
+    0: "January",
+    1: "February",
+    2: "March",
+    3: "April",
+    4: "May",
+    5: "June",
+    6: "July",
+    7: "August",
+    8: "September",
+    9: "October",
+    10: "November",
+    11: "December"
+  };
+
+    function getDayOfYear(date) {
+      // calculating day nr
+
+      const startOfYear = new Date(date.getFullYear(), 0, 1);  // year, 0 -> jan., the first
+      const diffInMilliseconds = date - startOfYear;  // dnr as a difference
+      // to number of days:
+      const diffInDays = Math.floor(diffInMilliseconds / (1000 * 60 * 60 * 24)) + 1;
+
+      return diffInDays;
+    }
+
+
+    // Getting current date, its components
+    // to compute dnr, week day name and fill the 'placeholders':
+    const today_ = new Date();
+    const year = today_.getFullYear();
+    const month = today_.getMonth() + 1;
+    const month_txt = month.toString().padStart(2, '0');
+    const weekday = today_.getDate();
+    const weekdayName = dayNames[weekday];
+    const day = today_.getDate();
+    const day_txt = day.toString().padStart(2, '0');
+    const ymd_str = `${year}-${month_txt}-${day_txt}`;  // yyyy-mm-dd
+
+    // console.log(`weekday: ${weekday}`);
+
+    const topElement = document.getElementById("top");
+    // console.log("topElement:", topElement);
+    // console.log(`topElement.innerHTML: ${topElement.innerHTML}`);
+    topElement.innerHTML = ymd_str;
+
+    const weekdayElement = document.getElementById("weekday");
+    weekdayElement.innerHTML = weekdayName;
+    const dmnrElement = document.getElementById("dmnr");
+    dmnrElement.innerHTML = day;
+    const mnameElement = document.getElementById("mname");
+    mnameElement.innerHTML = monthNames[month];
+    const yearElement = document.getElementById("year");
+    yearElement.innerHTML = year;
+    // Nr of the day in the year:
+    const dayOfYear = getDayOfYear(today_);
+    const dnrElement = document.getElementById("dnr");
+    dnrElement.innerHTML = dayOfYear;
+
+    // calculating nr of days in the year:
+    const lastDate = new Date(year, 11, 31);
+    const nrOfDays = getDayOfYear(lastDate);
+    const daysyearElement = document.getElementById("daysyear");
+    daysyearElement.innerHTML = nrOfDays;
+
+    // setting contents of div#memorylane
+    const memorylaneElement = document.getElementById("memorylanediv");
+
+    var contents = "<p>Commit to memory:</p>"
+    for (const key in memorylane) {
+      contents += `<p class="mitem tooltip" data-tooltip="${memorylane[key]['def']}">${memorylane[key]['item']}</p>\n`;
+    };
+    memorylaneElement.innerHTML = contents;
+
+  </script>
+
+  <!-- <div id="backlink"><a href="https://heliotech.github.io/">←</a></div> -->
+</div>
+
+</body>
+</html>
